@@ -11,6 +11,7 @@ def main():
     
     while True:
         dt = clock.tick(60) / 1000.0  # Limit to 60 FPS
+        player.update(dt)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
