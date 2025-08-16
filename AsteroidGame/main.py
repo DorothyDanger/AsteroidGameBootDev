@@ -6,17 +6,24 @@ def main():
     pygame.init()
     clock = pygame.time.Clock()
     dt = 0
+    update_group = pygame.sprite.Group()
+    draw_group = pygame.sprite.Group()
+    Player.containers = (update_group, draw_group)
+
     displayWindow = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     player = Player((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2))
     
+    
+
     while True:
         dt = clock.tick(60) / 1000.0  # Limit to 60 FPS
-        player.update(dt)
+        update_group.update(dt)  # Update all sprites in the group
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         pygame.Surface.fill(displayWindow, color="black") # Fill the screen with black
-        player.draw(displayWindow)
+        for sprite in draw_group:
+            sprite.draw(displayWindow) # Draw all sprites in the group
         pygame.display.flip()
     
     print("Starting Asteroids!")
