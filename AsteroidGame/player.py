@@ -4,10 +4,10 @@ from constants import PLAYER_RADIUS
 
 
 class Player(circleshape.CircleShape):
-    #rotation = 0 # Class variable for rotation
+    rotation = 0 # Class variable for rotation
     def __init__(self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)
-        self.rotation = 0
+        
     def draw(self, screen):
         pygame.draw.polygon(screen, color="white", points=self.triangle(), width = 2)
     
