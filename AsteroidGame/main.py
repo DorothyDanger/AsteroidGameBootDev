@@ -29,6 +29,12 @@ def main():
     while True:
         dt = clock.tick(60) / 1000.0  # Limit to 60 FPS
         update_group.update(dt)  # Update all sprites in the group
+        for asteroid in asteroid_group:
+            if player.collission(asteroid):
+                # Handle collision 
+                print("Game Over!")
+                pygame.quit()
+                return
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
