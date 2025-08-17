@@ -20,3 +20,8 @@ class CircleShape(pygame.sprite.Sprite):
     def update(self, dt):
         # sub-classes must override
         pass
+
+    # Check for collision. If the distance between the centers of two circles is less than or equal to the sum of their radii, they are colliding.
+    # This is used to check if the player collides with an asteroid.
+    def collission(self, other):
+        return self.position.distance_to(other.position) <= (self.radius + other.radius)
