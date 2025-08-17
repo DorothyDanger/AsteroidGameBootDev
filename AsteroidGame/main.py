@@ -21,7 +21,7 @@ def main():
     Player.containers = (update_group, draw_group)
     AsteroidField.containers = (update_group)
     Shot.containers = (update_group, draw_group, shot_group)
-    
+
     # Create instances of asteroids and player + display window
     asteroid_field = AsteroidField()
     displayWindow = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
